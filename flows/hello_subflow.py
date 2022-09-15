@@ -1,6 +1,6 @@
 from prefect import task, flow
 from prefect import get_run_logger
-from flows.healthcheck import healthcheck  # subflow
+from flows.healthcheck import healthcheck
 
 
 @task
