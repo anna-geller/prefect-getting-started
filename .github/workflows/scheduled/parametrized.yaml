@@ -1,7 +1,7 @@
-name: Healthcheck (every 10 min)
+name: Parametrized (every 5 min)
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   run:
@@ -24,7 +24,7 @@ jobs:
           prefect config set PREFECT_API_KEY=${{secrets.PREFECT_API_KEY}} 
           prefect config set PREFECT_API_URL=${{secrets.PREFECT_API_URL}}
 
-      - name: Healthcheck Flow
+      - name: Parametrized Flow
         run: |
           export PYTHONPATH="${PYTHONPATH}:/home/runner/work/prefect-getting-started/prefect-getting-started/"
-          python flows/healthcheck.py
+          python flows/parametrized.py
