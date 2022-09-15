@@ -1,4 +1,4 @@
-name: Run flow
+name: Run all flows
 on:
   workflow_dispatch:
     inputs:
