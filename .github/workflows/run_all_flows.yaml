@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: list-flows
     strategy:
+      fail-fast: true
       matrix:
         flows: ${{ fromJson(needs.list-flows.outputs.matrix) }}
     steps:
@@ -33,7 +34,7 @@ jobs:
       - name: Python dependencies
         run: |
           pip install -U prefect==${{ github.event.inputs.prefect-version }}
-          pip install ./flows
+          pip install .
       - name: Prefect Cloud login
         run: |
           prefect config set PREFECT_API_KEY=${{ secrets.PREFECT_API_KEY}} 
