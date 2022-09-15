@@ -1,0 +1,30 @@
+name: Run flow
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.9
+
+      - name: Python dependencies
+        run: |
+          pip install -U prefect==2.*
+
+      - name: Prefect Cloud login
+        run: |
+          prefect config set PREFECT_API_KEY=${{secrets.PREFECT_API_KEY}} 
+          prefect config set PREFECT_API_URL=${{secrets.PREFECT_API_URL}}
+
+      - name: Healthcheck Flow
+        run: |
+          export PYTHONPATH="${PYTHONPATH}:/home/runner/work/prefect-getting-started/prefect-getting-started/"
+          python flows/healthcheck.py
