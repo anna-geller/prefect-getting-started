@@ -1,4 +1,4 @@
-name: Run flow
+name: Healthcheck (every 5 min)
 on:
   schedule:
     - cron: '*/5 * * * *'
