@@ -13,7 +13,7 @@ on:
         type: choice
         options: ['healthcheck.py', 'hello_subflow.py', 'parametrized.py']
 jobs:
-  deploy:
+  run:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
