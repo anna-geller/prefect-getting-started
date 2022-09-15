@@ -1,7 +1,7 @@
 name: hello_subflow
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   run:
