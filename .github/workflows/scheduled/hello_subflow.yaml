@@ -1,7 +1,7 @@
-name: parametrized
+name: hello_subflow
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/15 * * * *'
 
 jobs:
   run:
@@ -24,7 +24,7 @@ jobs:
           prefect config set PREFECT_API_KEY=${{secrets.PREFECT_API_KEY}} 
           prefect config set PREFECT_API_URL=${{secrets.PREFECT_API_URL}}
 
-      - name: parametrized
+      - name: hello_subflow
         run: |
           export PYTHONPATH="${PYTHONPATH}:/home/runner/work/prefect-getting-started/prefect-getting-started/"
-          python flows/parametrized.py
+          python flows/hello_subflow.py
