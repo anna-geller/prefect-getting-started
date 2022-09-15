@@ -26,11 +26,11 @@ jobs:
 
       - name: Python dependencies
         run: |
-          pip install -U prefect==${{ github.event.inputs.flow }}
+          pip install -U prefect==${{ github.event.inputs.prefect-version }}
 
       - name: Prefect Cloud login
         run: |
           prefect config set PREFECT_API_KEY=${{ secrets.PREFECT_API_KEY}} 
           prefect config set PREFECT_API_URL=${{ secrets.PREFECT_API_URL}}
       - name: Run the flow
-        run: python flows/${{ github.event.inputs.prefect-version }}
+        run: python flows/${{ github.event.inputs.flow }}
