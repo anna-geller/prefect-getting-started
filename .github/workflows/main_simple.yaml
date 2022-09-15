@@ -11,7 +11,7 @@ on:
         description: Flow to run
         required: true
         type: choice
-        options: ['healhcheck.py', 'hello_subflow.py', 'parametrized.py']
+        options: ['healthcheck.py', 'hello_subflow.py', 'parametrized.py']
 jobs:
   deploy:
     runs-on: ubuntu-latest

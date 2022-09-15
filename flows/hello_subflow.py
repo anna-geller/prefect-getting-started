@@ -6,7 +6,7 @@ from flows.healthcheck import healthcheck  # subflow
 @task
 def say_hi(user_name: str):
     logger = get_run_logger()
-    logger.info("Hello from Prefect 2.0, %s! 👋", user_name)
+    logger.info("Hello from Prefect and GitHub Actions, %s! 👋", user_name)
 
 
 @flow

@@ -8,6 +8,7 @@ import sys
 @task
 def log_platform_info():
     logger = get_run_logger()
+    logger.info("Hello from GitHub Actions!")
     logger.info("Host's network name = %s", platform.node())
     logger.info("Python version = %s", platform.python_version())
     logger.info("Platform information (instance type) = %s ", platform.platform())
