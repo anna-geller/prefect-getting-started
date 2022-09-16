@@ -37,8 +37,8 @@ jobs:
           pip install .
       - name: Prefect Cloud login
         run: |
-          prefect config set PREFECT_API_KEY=${{ secrets.PREFECT_API_KEY}} 
-          prefect config set PREFECT_API_URL=${{ secrets.PREFECT_API_URL}}
+          prefect config set PREFECT_API_KEY=${{secrets.PREFECT_API_KEY}} 
+          prefect cloud workspace set --workspace "${{secrets.PREFECT_WORKSPACE}}"
       - name: Run all flows
         id: run
         run: |
